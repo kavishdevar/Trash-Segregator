@@ -1,14 +1,10 @@
-import os
 from flask import Flask as flask
 from flask import request
+import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import tensorflow as tf
 from keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
-#import matplotlib.pyplot as plt
-
-
 def identify(file_name):
   model = load_model('model.h5', compile=False)
   data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
