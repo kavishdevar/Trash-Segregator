@@ -19,8 +19,14 @@ def identify(file_name):
   prediction = (prediction - np.min(prediction)) / (np.max(prediction) - np.min(prediction))
   print(prediction)
   return prediction
+import platform
+def getUploadFolder():
+  if platform.system()=="Windows":
+    return r'.\static'
+  else:
+    return './static'
 
-UPLOAD_FOLDER = './static/'
+UPLOAD_FOLDER = getUploadFolder()
 
 app = flask(__name__)
 
@@ -36,28 +42,19 @@ def manage_root():
   print(request.files)
   # for i in range(5):
   file = request.files['file']
-  if os.path.exists("./static/toIdentify.jpeg"):
-    if os.path.exists("./static/toIdentify_old.jpeg"):
-      os.remove("./static/toIdentify_old.jpeg")
-    os.rename("./static/toIdentify.jpeg","./static/toIdentify_old.jpeg")
-  file.save(os.path.join(app.config['UPLOAD_FOLDER'], "toIdentify.jpeg"))
-  pr=identify("./static/toIdentify.jpeg")
+  identifyPath=os.path.normpath("./static/toIdentify.jpeg")
+  oldPath=os.path.normpath("./static/toIdentify_old.jpeg")
+  if os.path.exists(identifyPath):
+    if os.path.exists(oldPath):
+      os.remove(oldPath)
+    os.rename(identifyPath,oldPath)
+  file.save(identifyPath)
+  pr=identify(identifyPath)
   if int(pr[0])>int(pr[1]):
-    # print("Waste is Biodegradable")
-    results.append("True")
+    print("Waste is Biodegradable")
+    return True
   else:
-    # print("Waste is Non-Biodegradable")
-    results.append("False")
-  BioN=0
-  NonBioN=0
-  for i in results:
-    if i=="True":
-      BioN+=1
-    elif i=="False":
-      NonBioN+=1
-  if BioN>NonBioN:
-    return "True"
-  else:
-    return "False"
+    print("Waste is Non-Biodegradable")
+    return False
 if __name__ == "__main__":
   app.run('0.0.0.0',8080,True)

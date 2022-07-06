@@ -71,6 +71,8 @@ def setServoAngle(angle):
 
 ssid=popen("sudo iwgetid -r").read()
 printa(ssid)
+
+#School START
 def getURL():
    print("In function")
    if "Devars" in ssid:
@@ -79,7 +81,7 @@ def getURL():
    elif "laptop-9" in ssid:
       printa("laptop-9")
       return "http://192.168.37.1:8080"
-
+#School END
 URL = getURL()
 printa(URL)
 aa=0
