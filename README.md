@@ -1,4 +1,4 @@
-# Trash-Segregator
+# Trash-Segregator [For school project]
 
 ## Credits
 
