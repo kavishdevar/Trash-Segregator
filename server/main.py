@@ -52,9 +52,9 @@ def manage_root():
   pr=identify(identifyPath)
   if int(pr[0])>int(pr[1]):
     print("Waste is Biodegradable")
-    return True
+    return "True"
   else:
     print("Waste is Non-Biodegradable")
-    return False
+    return "False"
 if __name__ == "__main__":
   app.run('0.0.0.0',8080,True)
