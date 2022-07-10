@@ -17,7 +17,7 @@ python3 main.py
 
 ### Client Side (Raspberry Pi 3B used)
 
-***Note*** - **Change the ip address before running**
+***Note*** - **Change the ip address before running in ```URL```**
 
 ```bash
 cd client
