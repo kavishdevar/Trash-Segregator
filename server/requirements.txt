@@ -1,4 +1,0 @@
-flask
-tensorflow
-keras
-pillow
