@@ -1,0 +1,4 @@
+gpiozero
+flask
+tflite_runtime
+opencv
