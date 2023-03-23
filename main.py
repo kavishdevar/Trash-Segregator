@@ -19,42 +19,6 @@ classifier = vision.ImageClassifier.create_from_options(options)
 freeLED = LED(16)
 busyLED = LED(26)
 
-#def blockprint():
-#    sys.stdout = open(os.devnull, 'w')
-
-#def enableprint():
-#    sys.stdout = sys.__stdout__
-
-#def print(a):
-#    sys.stdout = open('/dev/kmsg', 'w')
-#    print(a)
-    #blockprint()
-    #system('echo trashClient: \"' + str(a) + '\" | sudo tee /dev/kmsg')
-    #enableprint()
-
-#def signal_handler(sig, frame):
-#   freeLED.off()
-#   busyLED.off()
-#   print('Exiting')
-#   f=open("/home/pi/code_running.txt","r+")
-#   f.truncate(0)
-#   f.close()
-#   f=open("/home/pi/code_running.txt","w")
-#   f.write("False")
-#   f.close()
-#   sys.exit(0)
-
-#signal.signal(signal.SIGINT, signal_handler)
-
-#f=open("/home/pi/code_running.txt","r+")
-#print("Truncating")
-#f.truncate(0)
-#f.close()
-#print("Writing True")
-#fa=open("/home/pi/code_running.txt","w")
-#fa.write("True")
-#fa.close()
-
 camera=cv2.VideoCapture(0)
 width = 512
 height = 512
@@ -75,20 +39,6 @@ s=AngularServo(12, min_angle=-45, max_angle=45)
 def setServoAngle(angle):
     s.angle=angle
 
-
-#ssid=popen("sudo iwgetid -r").read()
-#print(ssid)
-#def getURL():
-#   print("In function")
-#   if "Devars" in ssid:
-#      print("Devars")
-#      return "http://192.168.1.115:8080/"
-#   elif "laptop-9" in ssid:
-#      print("laptop-9")
-#      return "http://192.168.137.1:8080"
-
-#URL = getURL()
-#print(URL)
 aa=0
 
 from datetime import datetime
