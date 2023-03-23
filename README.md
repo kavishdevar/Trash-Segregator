@@ -1,5 +1,9 @@
 # Trash-Segregator
 
+## About
+
+Trash-Segregator is a project that aims to automate the task of waste segregation in public dustbins by classifying waste as either recyclable or non-recyclable. The project uses a machine learning model to classify the waste and is trained on a dataset of images of recyclable and non-recyclable waste. The model is trained using the dataset from [here](https://www.kaggle.com/datasets/rayhanzamzamy/non-and-biodegradable-waste-dataset). The model is then converted to TFLite format which is a lightweight version of TensorFlow that is designed to run on raspberry pi. Using OpenCV the raspberry pi detects if waste has been kept. Then using a few servo motor the segregtion is done automatically.
+
 ## Rationale
 
 Segregating an object to be discarded/thrown into biodegradable and non-biodegradable waste automatically results in non-biodegradable wastes like degraded plastics contaminating the soil and impacting biodiversity and soil health easily identifiable and hence preventing the issues listed above. Then further the biodegradable waste can be used to make natural manures and fertilizers which will increase the crop yield in agriculture and without decreasing the soil fertility.
