@@ -1,11 +1,6 @@
-import itertools
 import cv2
-import os,time,sys
+import os,time
 import numpy as np
-import requests
-import signal
-import sys
-from os import system,popen
 from gpiozero import AngularServo,LED
 import time
 from tflite_support.task import core
